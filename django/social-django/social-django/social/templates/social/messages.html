@@ -1,0 +1,26 @@
+{% extends "social/base.html" %}
+
+{% block content %}
+<div class='main'>
+<h3> Your Messages</h3>
+<hr>
+{% if age %}
+<h3>age:{{ age }} <br style='clear:left;'><br></h3>
+{% endif %}
+{% if sex %}
+<h3>sex:{{ sex }} <br style='clear:left;'><br></h3>
+{% endif %}
+{% if like %}
+<h3>like:{{ like }} <br style='clear:left;'><br></h3>
+{% endif %}
+<form method='POST' action='/social/messages/' enctype='multipart/form-data' class="form-inline">
+    {% csrf_token %}
+    <h3>Enter or edit your messages</h3>
+    <h3>age(number):<textarea name='age' cols='25' rows='1'>{{ age }}</textarea><br>
+    sex('F' or 'M'):<textarea name='sex' cols='10' rows='1'>{{ sex }}</textarea><br>
+    like(what's your hobby):<textarea name='like' cols='25' rows='1'>{{ like }}</textarea><br></h3>
+    <input type='submit' value='Save Message' class="btn">
+</form>
+<br>
+</div>
+{% endblock %}
